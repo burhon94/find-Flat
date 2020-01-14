@@ -109,34 +109,34 @@ func ExampleSearchFromMinPriceToMaxPriceManyResult() {
 	//Output: [{2 2 1755900 26 29 3 42 2 Mtishi Second} {3 1 1355900 23 26 3 75 5 Sheremetevo Second}]
 }
 
-func ExampleSearchByDistrictNoResult()  {
+func ExampleSearchByDistrictNoResult() {
 	result := searchByDistrict(flats, "Vnukova")
 	fmt.Println(result)
 	//Output: []
 }
-func ExampleSearchByDistrictOne()  {
+func ExampleSearchByDistrictOne() {
 	result := searchByDistrict(flats, "Sheremetevo")
 	fmt.Println(result)
 	//Output: [{3 1 1355900 23 26 3 75 5 Sheremetevo Second}]
 }
-func ExampleSearchByDistrictManyResult()  {
+func ExampleSearchByDistrictManyResult() {
 	result := searchByDistrict(flats, "Domodedova")
 	fmt.Println(result)
 	//Output: [{1 4 4355900 39 47 5 50 4 Domodedova New} {4 3 3655900 23 28 5 51 4 Domodedova Second}]
 }
 
-func ExampleSearchByDistrictsNoResult(){
-	result := searchByDistricts(flats, []string {"Vnukova", "Izmailova"})
+func ExampleSearchByDistrictsNoResult() {
+	result := searchByDistricts(flats, []string{"Vnukova", "Izmailova"})
 	fmt.Println(result)
 	//Output: []
 }
-func ExampleSearchByDistrictsOne(){
-	result := searchByDistricts(flats, []string {"Sheremetevo", "Izmailova"})
+func ExampleSearchByDistrictsOne() {
+	result := searchByDistricts(flats, []string{"Sheremetevo", "Izmailova"})
 	fmt.Println(result)
 	//Output: [{3 1 1355900 23 26 3 75 5 Sheremetevo Second}]
 }
-func ExampleSearchByDistrictsManyResult(){
-	result := searchByDistricts(flats, []string {"Sheremetevo", "Domodedova"})
+func ExampleSearchByDistrictsManyResult() {
+	result := searchByDistricts(flats, []string{"Sheremetevo", "Domodedova"})
 	fmt.Println(result)
 	//Output: [{1 4 4355900 39 47 5 50 4 Domodedova New} {3 1 1355900 23 26 3 75 5 Sheremetevo Second} {4 3 3655900 23 28 5 51 4 Domodedova Second}]
 }

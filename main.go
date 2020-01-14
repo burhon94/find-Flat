@@ -68,9 +68,9 @@ func searchByDistrict(flats []flat, district string) []flat {
 	return result
 }
 
-func searchByDistricts(flats []flat, districts [] string) []flat{
+func searchByDistricts(flats []flat, districts [] string) []flat {
 	result := make([]flat, 0)
-	for _, flat := range  flats{
+	for _, flat := range flats {
 		for _, district := range districts {
 			if flat.district == district {
 				result = append(result, flat)

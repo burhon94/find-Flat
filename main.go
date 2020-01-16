@@ -4,6 +4,19 @@ import (
 	"sort"
 )
 
+type flat struct {
+	id                  int64
+	rooms               int64
+	priceToRuble        int64
+	squareOfLife        int64
+	squareOfFlat        int64
+	squareOfKitchen      int64
+	remoteOfCenterPerKm int64
+	floor               int64
+	district            string
+	typeFlat            string
+}
+
 func sortByPriceAsc(flats []flat) []flat {
 	result := make([]flat, len(flats))
 	copy(result, flats)
@@ -79,19 +92,6 @@ func searchByDistricts(flats []flat, districts [] string) []flat {
 		}
 	}
 	return result
-}
-
-type flat struct {
-	id                  int64
-	rooms               int64
-	priceToRuble        int64
-	squareOfLife        int64
-	squereOfFlat        int64
-	squreOfKitchen      int64
-	remoteOfCenterPerKm int64
-	floor               int64
-	district            string
-	typeFlat            string
 }
 
 func main() {

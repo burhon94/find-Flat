@@ -10,45 +10,39 @@ type flat struct {
 	priceToRuble        int64
 	squareOfLife        int64
 	squareOfFlat        int64
-	squareOfKitchen      int64
+	squareOfKitchen     int64
 	remoteOfCenterPerKm int64
 	floor               int64
 	district            string
 	typeFlat            string
 }
 
-func sortByPriceAsc(flats []flat) []flat {
-	result := make([]flat, len(flats))
-	copy(result, flats)
-	sort.Slice(result, func(i, j int) bool {
-		return result[i].priceToRuble < result[j].priceToRuble
+func sortByPricesAscAndDesc(flats []flat) (resultForAsc, resultForDesc []flat) {
+	resultForAsc = make([]flat, len(flats))
+	copy(resultForAsc, flats)
+	resultForDesc = make([]flat, len(flats))
+	copy(resultForDesc, flats)
+	sort.Slice(resultForAsc, func(i, j int) bool {
+		return resultForAsc[i].priceToRuble < resultForAsc[j].priceToRuble
 	})
-	return result
-}
-func sortByPriceDesc(flats []flat) []flat {
-	result := make([]flat, len(flats))
-	copy(result, flats)
-	sort.Slice(result, func(i, j int) bool {
-		return result[i].priceToRuble > result[j].priceToRuble
+	sort.Slice(resultForDesc, func(i, j int) bool {
+		return resultForDesc[i].priceToRuble > resultForDesc[j].priceToRuble
 	})
-	return result
+	return
 }
 
-func sortByRemoteOfCenterFar(flats []flat) []flat {
-	result := make([]flat, len(flats))
-	copy(result, flats)
-	sort.Slice(result, func(i, j int) bool {
-		return result[i].remoteOfCenterPerKm > result[j].remoteOfCenterPerKm
+func sortByRemoteOfCenterNearAndFar(flats []flat) (resultForNear, resultForFar []flat) {
+	resultForNear = make([]flat, len(flats))
+	copy(resultForNear, flats)
+	resultForFar = make([]flat, len(flats))
+	copy(resultForFar, flats)
+	sort.Slice(resultForNear, func(i, j int) bool {
+		return resultForNear[i].remoteOfCenterPerKm < resultForNear[j].remoteOfCenterPerKm
 	})
-	return result
-}
-func sortByRemoteOfCenterNear(flats []flat) []flat {
-	result := make([]flat, len(flats))
-	copy(result, flats)
-	sort.Slice(result, func(i, j int) bool {
-		return result[i].remoteOfCenterPerKm < result[j].remoteOfCenterPerKm
+	sort.Slice(resultForFar, func(i, j int) bool {
+		return resultForFar[i].remoteOfCenterPerKm > resultForFar[j].remoteOfCenterPerKm
 	})
-	return result
+	return
 }
 
 func searchByMaxPrice(flats []flat, maxPrice int64) []flat {
@@ -87,7 +81,6 @@ func searchByDistricts(flats []flat, districts [] string) []flat {
 		for _, district := range districts {
 			if flat.district == district {
 				result = append(result, flat)
-				//continue
 			}
 		}
 	}

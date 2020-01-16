@@ -53,14 +53,14 @@ var flats = [] flat{
 	},
 }
 
-func ExampleSortbyPriceCheap() {
-	sortedByPriceCheap := sortByPriceCheap(flats)
-	fmt.Println(sortedByPriceCheap)
+func ExampleSortByPriceAsc() {
+	sortedByPriceAsc := sortByPriceAsc(flats)
+	fmt.Println(sortedByPriceAsc)
 	//Output: [{3 1 1355900 23 26 3 75 5 Sheremetevo Second} {2 2 1755900 26 29 3 42 2 Mtishi Second} {4 3 3655900 23 28 5 51 4 Domodedova Second} {1 4 4355900 39 47 5 50 4 Domodedova New}]
 }
-func ExampleSortByPriceExpansive() {
-	sortedByExpansive := sortByPriceExpansive(flats)
-	fmt.Println(sortedByExpansive)
+func ExampleSortByPriceDesc() {
+	sortedByDesc := sortByPriceDesc(flats)
+	fmt.Println(sortedByDesc)
 	//Output: [{1 4 4355900 39 47 5 50 4 Domodedova New} {4 3 3655900 23 28 5 51 4 Domodedova Second} {2 2 1755900 26 29 3 42 2 Mtishi Second} {3 1 1355900 23 26 3 75 5 Sheremetevo Second}]
 }
 
@@ -87,7 +87,7 @@ func ExampleSearchByMaxPriceOne() {
 }
 func ExampleSearchByMaxPriceManyResult() {
 	result := searchByMaxPrice(flats, 2_000_000)
-	result = sortByPriceCheap(result)
+	result = sortByPriceAsc(result)
 	fmt.Println(result)
 	//Output: [{3 1 1355900 23 26 3 75 5 Sheremetevo Second} {2 2 1755900 26 29 3 42 2 Mtishi Second}]
 }
@@ -104,7 +104,7 @@ func ExampleSearchFromMinPriceToMaxPriceOneResult() {
 }
 func ExampleSearchFromMinPriceToMaxPriceManyResult() {
 	result := searchFromByMinPriceToByMaxPrice(flats, 1_000_000, 2_500_000)
-	result = sortByPriceExpansive(result)
+	result = sortByPriceDesc(result)
 	fmt.Println(result)
 	//Output: [{2 2 1755900 26 29 3 42 2 Mtishi Second} {3 1 1355900 23 26 3 75 5 Sheremetevo Second}]
 }

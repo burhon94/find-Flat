@@ -4,7 +4,7 @@ import (
 	"sort"
 )
 
-func sortByPriceCheap(flats []flat) []flat {
+func sortByPriceAsc(flats []flat) []flat {
 	result := make([]flat, len(flats))
 	copy(result, flats)
 	sort.Slice(result, func(i, j int) bool {
@@ -12,7 +12,7 @@ func sortByPriceCheap(flats []flat) []flat {
 	})
 	return result
 }
-func sortByPriceExpansive(flats []flat) []flat {
+func sortByPriceDesc(flats []flat) []flat {
 	result := make([]flat, len(flats))
 	copy(result, flats)
 	sort.Slice(result, func(i, j int) bool {
